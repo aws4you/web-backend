@@ -1,0 +1,7 @@
+*.iml
+db.sqlite3
+.idea
+.envrc
+.python-version
+.tool-versions
+__pycache__
