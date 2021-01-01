@@ -5,26 +5,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
 STATIC_DIR = os.path.join(BASE_DIR, "static")
 
-DEBUG = False
-
 import re
 
-try:
-    with open(os.path.join(BASE_DIR, "env"), 'r') as f:
-        matches = re.findall(r'^(.+)=(.*)$', f.read(), flags=re.M)
-        DJANGO_ENV = dict(matches)['DJANGO_ENV']
+DJANGO_ENV = os.getenv('DJANGO_ENV', 'LOCAL')
+with open(f'/etc/default/env.{DJANGO_ENV}', 'r') as f:
+    matches = re.findall(r'^(.+)=(.*)$', f.read(), flags=re.M)
+    env = dict(matches)
 
-    with open(f'/etc/default/env.{DJANGO_ENV}', 'r') as f:
-        matches = re.findall(r'^(.+)=(.*)$', f.read(), flags=re.M)
-        env = dict(matches)
-
-    SECRET_KEY = env['DJANGO_SECRET']
-    DEBUG = "PROD" in env['DJANGO_ENV']
-
-except:
-    SECRET_KEY = os.getenv('SECRET_KEY', '1Qw9#' * 10)
-
-print(d)
+SECRET_KEY = env['DJANGO_SECRET']
+DEBUG = env['DJANGO_DEBUG'] in (True, "True")
 
 ALLOWED_HOSTS = []
 
