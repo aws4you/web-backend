@@ -3,11 +3,11 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      python: 3.7
+      python: 3.8
 
   build:
     commands:
-      - echo "DJANGO_SECRET=02s0xsryamukgthz@t11f9t!6zmbja@kj@rex122qn62g4dj1@" > /etc/default/env.LOCAL
+      - echo DJANGO_SECRET=$(python -c 'print("A"*50)') > /etc/default/env.LOCAL
       - echo "DJANGO_DEBUG=True" >> /etc/default/env.LOCAL
       - pip3 install -r requirements.txt
       - python3 manage.py migrate
