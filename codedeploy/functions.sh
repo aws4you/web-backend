@@ -19,3 +19,5 @@ esac
 export NGINX_CONF=backend-${DJANGO_ENV}.conf
 export NGINX_AVAILABLE_APP_CONF=/etc/nginx/sites-available/${NGINX_CONF}
 export NGINX_ENABLED_APP_CONF=/etc/nginx/sites-enabled/${NGINX_CONF}
+
+export GUNICORN_SOCKET_PATH=/tmp/web-backend-${DJANGO_ENV}.sock

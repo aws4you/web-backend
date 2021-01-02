@@ -6,4 +6,4 @@ set -ex
 
 cd ${APP_HOME} || exit
 
-wget -q 127.0.0.1:${APP_PORT}/admin/
+curl -f --unix-socket $GUNICORN_SOCKET_PATH http://127.0.0.1/admin/
