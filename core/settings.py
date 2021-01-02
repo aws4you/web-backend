@@ -12,7 +12,7 @@ with open(f'/etc/default/env.{DJANGO_ENV}', 'r') as f:
 SECRET_KEY = env['DJANGO_SECRET']
 DEBUG = env['DJANGO_DEBUG'] in (True, "True")
 
-ALLOWED_HOSTS = [ '.cloud-init.ml' ]
+ALLOWED_HOSTS = [ '127.0.0.1', '.cloud-init.ml' ]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
