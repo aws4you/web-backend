@@ -2,6 +2,6 @@
 
 set -ex
 
-. ./functions.sh
+. $(dirname "${BASH_SOURCE[0]}")/functions.sh
 
-cd ${SOURCES_HOME} || exit
+cd ${APP_HOME} || exit
