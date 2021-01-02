@@ -2,9 +2,10 @@
 
 set -ex
 
-cd "$(cd "$(dirname "${BASH_SOURCE[0]}")"/../.. >/dev/null 2>&1 && pwd)" || exit
+. ./functions.sh
 
-# Install requirements
+cd ${SOURCES_HOME} || exit
+
 pip3 install -r requirements.txt
 
-echo "before install"
+python3 manage.py migrate
