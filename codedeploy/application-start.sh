@@ -6,7 +6,4 @@ set -ex
 
 cd ${APP_HOME} || exit
 
-killall gunicorn ||:
-
-echo "Exit status: $?"
-
+gunicorn -c codedeploy/conf/gunicorn-${DJANGO_ENV}.conf.py -D core.wsgi
