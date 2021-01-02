@@ -6,4 +6,4 @@ set -ex
 
 cd ${APP_HOME} || exit
 
-wget -q http://127.0.0.1:${APP_PORT}
+wget -q 127.0.0.1:${APP_PORT}/admin/
