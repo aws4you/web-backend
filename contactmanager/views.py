@@ -13,11 +13,6 @@ class TopicDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Topic.objects.all()
     serializer_class = TopicSerializer
 
-    def get_object(self):
-        pk = self.kwargs['pk']
-
-        return self.serializer_class.Meta.model.objects.get(id=pk)
-
 
 class WebPagesList(generics.ListCreateAPIView):
     queryset = WebPage.objects.all()
@@ -27,11 +22,6 @@ class WebPagesList(generics.ListCreateAPIView):
 class WebPageDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = WebPage.objects.all()
     serializer_class = WebPageSerializer
-
-    def get_object(self):
-        pk = self.kwargs['pk']
-
-        return self.serializer_class.Meta.model.objects.get(id=pk)
 
 
 class AccessRecordsList(generics.ListCreateAPIView):
@@ -43,7 +33,3 @@ class AccessRecordDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = AccessRecord.objects.all()
     serializer_class = AccessRecordSerializer
 
-    def get_object(self):
-        pk = self.kwargs['pk']
-
-        return self.serializer_class.Meta.model.objects.get(id=pk)
