@@ -6,4 +6,4 @@ set -ex
 
 cd ${APP_HOME} || exit
 
-killall gunicorn
+killall gunicorn ||:
