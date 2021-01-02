@@ -2,26 +2,26 @@ version: 0.0
 os: linux
 hooks:
   ApplicationStop:
-    - location: codedeploy/application-stop.sh
+    - location: codedeploy/1_application-stop.sh
       timeout: 300
       runas: root
 
   BeforeInstall:
-    - location: codedeploy/before-install.sh
+    - location: codedeploy/2_before-install.sh
       timeout: 300
       runas: root
 
   AfterInstall:
-    - location: codedeploy/after-install.sh
+    - location: codedeploy/3_after-install.sh
       timeout: 300
       runas: root
 
   ApplicationStart:
-    - location: codedeploy/application-start.sh
+    - location: codedeploy/4_application-start.sh
       timeout: 300
       runas: root
 
   ValidateService:
-    - location: codedeploy/validate-service.sh
+    - location: codedeploy/5_validate-service.sh
       timeout: 300
   
