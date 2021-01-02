@@ -5,3 +5,4 @@ db.sqlite3
 .python-version
 .tool-versions
 __pycache__
+/static
