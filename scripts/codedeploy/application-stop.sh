@@ -7,3 +7,6 @@ set -ex
 cd ${APP_HOME} || exit
 
 killall gunicorn ||:
+
+echo "Exit status: $?"
+
