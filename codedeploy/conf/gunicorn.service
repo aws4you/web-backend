@@ -1,0 +1,14 @@
+[Unit]
+Description=gunicorn ${DJANGO_ENV} daemon
+After=network.target
+
+[Service]
+Environment="GUNICORN_SOCKET_PATH=${GUNICORN_SOCKET_PATH}"
+Environment="DJANGO_ENV=${DJANGO_ENV}"
+User=nobody
+Group=www-data
+WorkingDirectory=${APP_HOME}
+ExecStart=${APP_HOME}/venv/bin/gunicorn --access-logfile - -c ${APP_HOME}/codedeploy/conf/gunicorn-${DJANGO_ENV}.conf.py core.wsgi
+
+[Install]
+WantedBy=multi-user.target
