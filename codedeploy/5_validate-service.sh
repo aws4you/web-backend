@@ -6,4 +6,4 @@ set -ex
 
 cd ${APP_HOME} || exit
 
-wget -q http://127.0.0.1:8000
+wget -q http://127.0.0.1:${DJANGO_ENV}
