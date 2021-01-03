@@ -1,35 +1,35 @@
-from rest_framework import generics
 
 from contactmanager.models import Topic, WebPage, AccessRecord
 from contactmanager.serializers import TopicSerializer, WebPageSerializer, AccessRecordSerializer
 
+from rest_framework import viewsets, permissions
 
-class TopicsList(generics.ListCreateAPIView):
+class TopicViewSet(viewsets.ModelViewSet):
+    """
+    This viewset automatically provides `list`, `create`, `retrieve`,
+    `update` and `destroy` actions.
+    """
     queryset = Topic.objects.all()
     serializer_class = TopicSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
-class TopicDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Topic.objects.all()
-    serializer_class = TopicSerializer
-
-
-class WebPagesList(generics.ListCreateAPIView):
+class WebPageViewSet(viewsets.ModelViewSet):
+    """
+    This viewset automatically provides `list`, `create`, `retrieve`,
+    `update` and `destroy` actions.
+    """
     queryset = WebPage.objects.all()
     serializer_class = WebPageSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
-class WebPageDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = WebPage.objects.all()
-    serializer_class = WebPageSerializer
-
-
-class AccessRecordsList(generics.ListCreateAPIView):
+class AccessRecordViewSet(viewsets.ModelViewSet):
+    """
+    This viewset automatically provides `list`, `create`, `retrieve`,
+    `update` and `destroy` actions.
+    """
     queryset = AccessRecord.objects.all()
     serializer_class = AccessRecordSerializer
-
-
-class AccessRecordDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = AccessRecord.objects.all()
-    serializer_class = AccessRecordSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
