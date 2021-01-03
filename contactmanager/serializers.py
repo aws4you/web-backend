@@ -4,6 +4,9 @@ from contactmanager.models import Topic, WebPage, AccessRecord
 
 
 class TopicSerializer(serializers.ModelSerializer):
+
+    # Before creating this field we should define foreign key with parameter related_name='webpages'
+    # in the WebPage model
     webpages = serializers.HyperlinkedRelatedField(many=True, view_name='webpage-detail', read_only=True)
 
     class Meta:
@@ -12,14 +15,17 @@ class TopicSerializer(serializers.ModelSerializer):
 
 
 class WebPageSerializer(serializers.ModelSerializer):
+
     topic = serializers.HyperlinkedRelatedField(many=False, view_name='topic-detail', read_only=True)
     accessrecords = serializers.HyperlinkedRelatedField(many=True, view_name='accessrecord-detail', read_only=True)
+
     class Meta:
         model = WebPage
         fields = ['url', 'topic_id', 'name', 'topic', 'webpage_url', 'accessrecords']
 
 
 class AccessRecordSerializer(serializers.ModelSerializer):
+
     name = serializers.HyperlinkedRelatedField(many=False, view_name='webpage-detail', read_only=True)
     page_name = serializers.ReadOnlyField(source='name.name')
 
