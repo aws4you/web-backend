@@ -1,6 +1,11 @@
 django==3.1.4
 djangorestframework==3.12.2
-pygments
-Faker==5.3.0
 pymysql==0.10.1
+# for snippets
+pygments
+# raise RuntimeError("'cryptography' package is required for sha256_password or caching_sha2_password auth methods")
+cryptography
+# data population
+Faker==5.3.0
+# gunicorn wsgi server
 gunicorn==20.0.4
