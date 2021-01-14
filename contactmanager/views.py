@@ -1,6 +1,6 @@
 
-from contactmanager.models import Topic, WebPage, AccessRecord
-from contactmanager.serializers import TopicSerializer, WebPageSerializer, AccessRecordSerializer
+from contactmanager.models import Topic, WebPage, AccessRecord, Contact
+from contactmanager.serializers import TopicSerializer, WebPageSerializer, AccessRecordSerializer, ContactSerializer
 
 from rest_framework import viewsets, permissions
 
@@ -33,3 +33,12 @@ class AccessRecordViewSet(viewsets.ModelViewSet):
     serializer_class = AccessRecordSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
+
+class ContactViewSet(viewsets.ModelViewSet):
+    """
+    This viewset automatically provides `list`, `create`, `retrieve`,
+    `update` and `destroy` actions.
+    """
+    queryset = Contact.objects.all()
+    serializer_class = ContactSerializer
+    permission_classes = []

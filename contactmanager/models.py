@@ -27,3 +27,13 @@ class AccessRecord(models.Model):
     def __str__(self):
         return str(self.date)
 
+
+class Contact(models.Model):
+
+    name = models.CharField(max_length=64, unique=True)
+    email = models.EmailField(max_length=64, unique=True)
+    phone = models.CharField(max_length=64, unique=True)
+
+    def __str__(self):
+        return f'{self.name}, {self.email}, {self.phone}'
+

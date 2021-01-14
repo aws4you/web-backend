@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from contactmanager.models import Topic, WebPage, AccessRecord
+from contactmanager.models import Topic, WebPage, AccessRecord, Contact
 
 
 class TopicSerializer(serializers.ModelSerializer):
@@ -33,3 +33,8 @@ class AccessRecordSerializer(serializers.ModelSerializer):
         model = AccessRecord
         fields = ['url', 'page_name', 'date', 'name']
 
+class ContactSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Contact
+        fields = [ 'id', 'name', 'email', 'phone' ]

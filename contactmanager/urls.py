@@ -7,6 +7,7 @@ router = DefaultRouter()
 router.register(r'topics', views.TopicViewSet)
 router.register(r'webpages', views.WebPageViewSet)
 router.register(r'accessrecords', views.AccessRecordViewSet)
+router.register(r'contact', views.ContactViewSet)
 
 # The API URLs are now determined automatically by the router.
 urlpatterns = [
