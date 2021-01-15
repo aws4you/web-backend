@@ -16,8 +16,8 @@ ALLOWED_HOSTS = [ '127.0.0.1', '.cloud-init.ml' ]
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
-    'https://contactmanager.dev.cloud-init.ml'
-    'https://contactmanager.cloud-init.ml'
+    'https://contactmanager.dev.cloud-init.ml',
+    'https://contactmanager.cloud-init.ml',
 )
 
 INSTALLED_APPS = [
