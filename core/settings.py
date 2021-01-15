@@ -13,6 +13,12 @@ SECRET_KEY = env['DJANGO_SECRET']
 DEBUG = env['DJANGO_DEBUG'] in (True, "True")
 
 ALLOWED_HOSTS = [ '127.0.0.1', '.cloud-init.ml' ]
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
+    'https://contactmanager.dev.cloud-init.ml'
+    'https://contactmanager.cloud-init.ml'
+)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -21,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'rest_framework',
     'contactmanager',
     'snippets.apps.SnippetsConfig',
@@ -34,6 +41,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'
